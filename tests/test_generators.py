@@ -50,6 +50,10 @@ def test_transaction_descriptions_all(sample_transactions):
     (2, ["Перевод в USD", "Перевод в RUB"]),
     (3, ["Перевод в USD", "Перевод в RUB", "Оплата в USD"])])
 
+def test_transaction_descriptions_partial(sample_transactions, count, expected):
+    desc_gen = transaction_descriptions(sample_transactions)
+    result = [next(desc_gen) for _ in range(count)]
+    assert result == expected
 
 @pytest.mark.parametrize("start, end, expected", [
     (1, 3, ["0000 0000 0000 0001", "0000 0000 0000 0002", "0000 0000 0000 0003"]),
@@ -60,6 +64,11 @@ def test_card_number_generator_range(start, end, expected):
     card_gen = card_number_generator(start, end)
     result = list(card_gen)
     assert result == expected
+
+def test_card_number_generator_start_greater_than_end():
+    card_gen = card_number_generator(5, 4)
+    result = list(card_gen)
+    assert len(result) == 0
 
 def test_card_number_generator_single():
     card_gen = card_number_generator(5, 5)
