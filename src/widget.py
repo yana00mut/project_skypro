@@ -3,6 +3,7 @@ from datetime import datetime
 
 
 def get_mask_card_number(number: str):
+    """Срезаем числа"""
     first = number[:13]
     second = number[14:18]
     third = number[18:20]
@@ -12,11 +13,13 @@ def get_mask_card_number(number: str):
 
 
 def get_mask_account(number: str):
+    """Возвращаем замаскированное число"""
     once = number[-4:]
     return f"**{once}"
-    """Возвращаем замаскированное число"""
+
 
 def get_date(date: str):
+    """"Выводим дату"""
     day = date[8:10]
     month = date[5:7]
     year = date[:4]
