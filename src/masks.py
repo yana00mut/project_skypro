@@ -1,3 +1,6 @@
+number = input()
+
+
 def get_mask_card_number(number: str):
     first = number[:13]
     second = number[14:18]
@@ -20,5 +23,3 @@ def get_date(date: str):
     res = f"{day}.{month}.{year}"
     return res
     """выводим дату"""
-
-
