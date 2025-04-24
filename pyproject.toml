@@ -1,9 +1,9 @@
 [project]
-name = "your_project_name"  # Замените на имя вашего проекта
+name = "project_skypro"  # Замените на имя вашего проекта
 version = "0.1.0"          # Замените на версию вашего проекта
 description = "A short description of your project."
 authors = [
-    { name = "Your Name", email = "your.email@example.com" } # Замените на ваши данные
+    { name = "Yana", email = "your.email@example.com" } # Замените на ваши данные
 ]
 dependencies = [
     # Ваши зависимости проекта здесь
