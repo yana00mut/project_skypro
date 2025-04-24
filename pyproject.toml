@@ -44,9 +44,12 @@ show_error_context = true
 ignore_missing_imports = false
 warn_redundant_casts = true
 warn_unused_ignores = true
-warn_return_any = true
 warn_unreachable = true
 check_untyped_defs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_return_any = true
+exclude = 'venv'
 
 [[tool.mypy.overrides]]
 module = "tests.*"            # Игнорировать ошибки для тестовых файлов
@@ -56,8 +59,3 @@ ignore_errors = true
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
-[tool.mypy]
-disallow_untyped_defs = true
-no_implicit_optional = true
-warn_return_any = true
-exclude = 'venv'
