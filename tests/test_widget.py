@@ -18,7 +18,7 @@ def test_mask_account_card(acc: str, expected: str) -> None:
 
 @pytest.mark.parametrize("acc", ["", None, "gdfngdf gdf", "1234", "867524565463"])
 def test_mask_account_card_invalid(acc: str) -> None:
-    """проверка на typeerror"""
+    """Проверка на typeerror"""
     if acc is None:
         with pytest.raises(TypeError):
             get_mask_card_number(acc)
