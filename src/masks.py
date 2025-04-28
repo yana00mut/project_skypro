@@ -1,8 +1,7 @@
 import logging
 
-
 logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler('../logs/masks.log')
+file_handler = logging.FileHandler('../logs/masks.log', mode="w")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -38,4 +37,3 @@ def get_date(date: str):
     result = f"{day}.{month}.{year}"
     logger.info(f"Результат: {result}")
     return result
-
