@@ -2,17 +2,12 @@ import json
 import os
 import logging
 
-os.makedirs("logs", exist_ok=True)
-
-logging.basicConfig(
-    filename="logs/utils.log",
-    filemode="w",
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    encoding="utf-8"
-)
-
 logger = logging.getLogger(__name__)
+file_handler = logging.FileHandler('../logs/utils.log')
+file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+logger.setLevel(logging.DEBUG)
 
 
 def load_transactions(file_path):
