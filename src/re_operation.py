@@ -1,5 +1,7 @@
 import re
 
+from collections import Counter
+
 
 def filter_by_description(operations: list[dict], search_string: str) -> list[dict]:
     pattern = re.compile(re.escape(search_string), re.IGNORECASE)
@@ -7,10 +9,14 @@ def filter_by_description(operations: list[dict], search_string: str) -> list[di
 
 
 def count_by_category(operations: list[dict], categories: list[str]) -> dict:
-    result = {category: 0 for category in categories}
+    normalized_categories = [cat.lower() for cat in categories]
+    counter = Counter()
+
     for op in operations:
-        desc = op.get("description", "").lower()
-        for category in categories:
-            if category.lower() in desc:
-                result[category] += 1
+        description = op.get("description", "").lower()
+        for category in normalized_categories:
+            if category in description:
+                counter[category] += 1
+
+    result = {cat: counter[cat.lower()] for cat in categories}
     return result
